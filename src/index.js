@@ -3,6 +3,22 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+import {createStore} from 'redux';
+
+
+// STEP 1 - STORE -> Globalized STATE (Holds all the data/state for our application)
+
+
+// STEP 2 - ACTION - Just describes what you want to do (E.g. I want to increment)
+
+
+// STEP 3 - REDUCER - Describes how your actions transform the state into the next state. 
+// Going to check the ACTION, and based on ACTION will modify STORE 
+
+
+// STEP 4 - DISPATCH - Execute the action
+
+
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
