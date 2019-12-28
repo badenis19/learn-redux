@@ -3,10 +3,48 @@ import ReactDOM from 'react-dom';
 // import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-import {createStore} from 'redux';
+import { createStore } from 'redux';
+import allReducer from "./reducers/index" // or import { allReducer } from "./reducers" because webpack will know you are looking for index
+
+// allReducer is combining all of the reducers in ./reducers/index.js (combineReducers allow mutilple reducer to be on our store)
+const store = createStore(allReducer);
+
+ReactDOM.render(<App />, document.getElementById('root'));
+
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: https://bit.ly/CRA-PWA
+serviceWorker.unregister();
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+// --------- WITH REDUX ----------
 // STEP 1 - STORE -> Globalized STATE (Holds all the data/state for our application)
+// Holds all of our states
 
 
 // STEP 2 - ACTION - Just describes what you want to do (E.g. I want to increment) and not actually incrementing
@@ -31,6 +69,7 @@ const decrement = () => {
 // Going to check the ACTION, and based on ACTION will modify STORE 
 
 // parameter define the initial state of our counter
+// counter is one state
 const counter = (state = 0, action) => {
     // switch allows to switch the ACTION depending on its name/type
     switch(action.type){
@@ -50,12 +89,9 @@ store.subscribe(() => console.log(store.getState()));
 
 // STEP 4 - DISPATCH - Execute the action
 store.dispatch(increment());
+store.dispatch(increment());
+store.dispatch(decrement());
+*/
 
 
 
-ReactDOM.render(<App />, document.getElementById('root'));
-
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
