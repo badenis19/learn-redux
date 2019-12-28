@@ -1,11 +1,11 @@
 import counterReducer  from "./counter";
 import loggedReducer from "./isLogged";
-import { combinedReducers } from "redux";
+import { combineReducers } from "redux";
 
 // will contain all of our needed reducers
-const allReducer = combinedReducers({
+const allReducer = combineReducers({
     counter: counterReducer, // or only put counterReducer (shorthand)
     IsLogged: loggedReducer
 })
 
-export default allReducers;
+export default allReducer;

@@ -1,3 +1,5 @@
+// extension to see everything in browser - Redux Devtool
+
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import './index.css';
@@ -5,11 +7,19 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { createStore } from 'redux';
 import allReducer from "./reducers/index" // or import { allReducer } from "./reducers" because webpack will know you are looking for index
+import { Provider } from "react-redux"; // connects our the STORE(myStore) (global states) to our entire <App />
+
 
 // allReducer is combining all of the reducers in ./reducers/index.js (combineReducers allow mutilple reducer to be on our store)
-const store = createStore(allReducer);
+const store = createStore(allReducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 
-ReactDOM.render(<App />, document.getElementById('root'));
+// GOAL - hook up store to our App
+// Provider allows us to access the Store from inside our App, passing store={store}
+ReactDOM.render(
+    <Provider store={store}> 
+        <App />
+    </Provider>,
+    document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
